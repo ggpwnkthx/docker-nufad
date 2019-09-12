@@ -26,7 +26,8 @@ This version is currently the only version available to NUFAD. It is accessible 
 Only GET and POST requests are supported. GET requests will always provide a list of methods and functions that the current sessions is allowed to call. POST requests will be parsed and executed if the current session has permission.
 POST requests need to have a BODY that defines an "action". The "action" needs to specify the "module" that will be used, a "function" that module provides, and (if required by that function) "arguments" that function may need.
 With APIv1, we strictly use JSON in the BODY of the POST request.
-```{
+```
+{
 	"action" : { 
 		"module" : "MODULE.PATH", 
 		"function" : "PYTHON_FUNCTION", 
@@ -35,10 +36,12 @@ With APIv1, we strictly use JSON in the BODY of the POST request.
 			"NAMED_ARGUMENT_2" : "ANOTHER_ARGUMENT_VALUE"
 		}
 	}
-}```
+}
+```
 
 You can also request a queue of actions:
-```{
+```
+{
 	"actions" : [
 		{ 
 			"module" : "MODULE.PATH", 
@@ -58,7 +61,8 @@ You can also request a queue of actions:
 		},
 		
 	]
-}```
+}
+```
 #### Sessions
 Flask is heavily leaveraged for session management. 
 ## Core:Authentication
@@ -66,7 +70,8 @@ This module is designed to be extended. It should be used to manage other authen
 ### API
 #### Login
 To login and create a session, you'll need a POST request with a BODY similiar to the following:
-```{
+```
+{
 	"action" : { 
 		"module" : "core.authentication", 
 		"function" : "login", 
@@ -78,6 +83,7 @@ To login and create a session, you'll need a POST request with a BODY similiar t
 			}
 		}
 	}
-}```
+}
+```
 
 In this case, we are using the "packages.authentication_local" module to process the authentication based on the provided "username" and "password" arguments.
