@@ -36,6 +36,7 @@ With APIv1, we strictly use JSON in the BODY of the POST request.
 		}
 	}
 }```
+
 You can also request a queue of actions:
 ```{
 	"actions" : [
@@ -78,4 +79,5 @@ To login and create a session, you'll need a POST request with a BODY similiar t
 		}
 	}
 }```
+
 In this case, we are using the "packages.authentication_local" module to process the authentication based on the provided "username" and "password" arguments.
