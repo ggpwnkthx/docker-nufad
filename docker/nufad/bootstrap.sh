@@ -8,9 +8,9 @@ echo "appuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/appuser
 DOCKER_BRIDGE=$(printf "%d." $(awk '$2 == "00000000" {print $3}' /proc/net/route | sed 's/../0x& /g' | tr ' ' '\n' | tac) | sed 's/\.$/\n/')
 if [ -z "$(grep 'DOCKER_BRIDGE=' /app/configs/app.ini)" ]
 then
-	echo 'DOCKER_BRIDGE="$DOCKER_BRIDGE"' >> /app/configs/app.ini
+	echo "DOCKER_BRIDGE=\"$DOCKER_BRIDGE\"" >> /app/configs/app.ini
 else
-	sed -i 's/^\(DOCKER_BRIDGE\s*=\s*\).*\$/\1"$DOCKER_BRIDGE"/' /app/configs/app.ini
+	sed -i "s/^\(DOCKER_BRIDGE\s*=\s*\).*\$/\1\"$DOCKER_BRIDGE\"/" /app/configs/app.ini
 fi
 
 MUID=$(hostname -s)
