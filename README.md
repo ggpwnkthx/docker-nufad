@@ -3,12 +3,11 @@
 
 NUFAD is a dockerized web service designed to provide a modular API writen in Python for enterprise use.
 
-THIS REPO IS ONLY THE (F)LASK PORTION. THE FULL INSTALLER CAN BE FOUND HERE:
-https://github.com/ggpwnkthx/nufad_installer
+THIS REPO IS ONLY THE (F)LASK PORTION. THE FULL-STACK INSTALLER CAN BE FOUND HERE:
 
+https://github.com/ggpwnkthx/nufad_installer
 # Modularity
 NUFAD, at its very core, is designed to be modular. In fact, NUFAD's core is made up of modules: configuration, logging, api, authentication, and permissions.
-
 ## Core:Configuration
 This module sets up SQLAlchmey and database bindings. To use the built in SQLite database, import it into your module's script with the following line:
 ```from core.configuration.sql import db```
@@ -22,7 +21,7 @@ info("This text will be log for informational purposes.")
 warning("This text will be log for warning purposes.")
 error("This text will be log for error purposes.")
 ```
-## Core:Api
+## core:.api
 Arguably this is the heart of NGINX, and even it is design to be modular, allowing for separate routing to different API versions.
 ### v1
 This version is currently the only version available to NUFAD. It is accessible via HTTPS only, and from the route "/api/v1".
@@ -43,7 +42,7 @@ With APIv1, we strictly use JSON in the BODY of the POST request.
 }
 ```
 
-You can also request a queue of actions:
+You can also send request with a list of actions, and each action will be executed in the order they are listed:
 ```
 {
 	"actions" : [
@@ -67,9 +66,7 @@ You can also request a queue of actions:
 	]
 }
 ```
-#### Sessions
-Flask is heavily leaveraged for session management. 
-## Core:Authentication
+## core.authentication
 This module is designed to be extended. It should be used to manage other authentication modules. It does NOT do any actual authenticating. It just sets up sessions if/when a separate authenticating module says it's OK to do so.
 ### API
 #### Login
@@ -90,3 +87,7 @@ To login and create a session, you'll need a POST request with a BODY similiar t
 }
 ```
 In this case, we are using the "packages.authentication_local" module to process the authentication based on the provided "username" and "password" arguments.
+#### Sessions
+Flask is heavily leaveraged for session management.
+https://pythonhosted.org/Flask-Session/
+## core.permissions
