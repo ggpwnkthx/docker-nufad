@@ -97,7 +97,7 @@ def evaluate(action):
 	permission = action['module']+'.'+action['function']
 	validation = permissions.can(permission)
 	if validation['status'] == 'error':
-		#results.update(validation)
+		results.update(validation)
 		return results
 	
 	# Set Arguments
