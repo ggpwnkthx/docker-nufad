@@ -1,5 +1,5 @@
 # Purpose
-(N)ginx, (U)wsgi, and (F)lask, on (A)lpine in a (D)ocker container
+(N)ginx, (U)wsgi, and (F)lask providing an (A)pi from a (D)ocker container
 
 NUFAD is a dockerized web service designed to provide a modular API writen in Python for enterprise use.
 
@@ -21,7 +21,7 @@ info("This text will be log for informational purposes.")
 warning("This text will be log for warning purposes.")
 error("This text will be log for error purposes.")
 ```
-## core:.api
+## core.api
 Arguably this is the heart of NGINX, and even it is design to be modular, allowing for separate routing to different API versions.
 ### v1
 This version is currently the only version available to NUFAD. It is accessible via HTTPS only, and from the route "/api/v1".
