@@ -24,7 +24,7 @@ error("This text will be log for error purposes.")
 ## core.api
 Arguably this is the heart of NUFAD, and even it is design to be modular. It it designed to accomodate separate route for different APIs and versions.
 ### v1
-This version is the stock API for NUFAD. Because of the nature of the POST requests, it is accessible only via HTTPS, and from the route "/api/v1".
+This version is the stock API for NUFAD, and is accessible via the route "/api/v1".
 #### Requests
 Only GET and POST requests are supported. GET requests will always provide a list of methods and functions that the current sessions is allowed to call. POST requests will be parsed and executed if the current session has permission.
 POST requests need to have a BODY that defines an "action". The "action" needs to specify the "module" that will be used, a "function" that module provides, and (if required by that function) "arguments" that function may need.
@@ -42,7 +42,7 @@ With APIv1, we strictly use JSON in the BODY of the POST request.
 }
 ```
 
-You can also send request with a list of actions, and each action will be executed in the order they are listed:
+You can also send a request with a list of actions, and each action will be executed in the order they are listed:
 ```
 {
 	"actions" : [
